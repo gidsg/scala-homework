@@ -1,10 +1,20 @@
 object Homework {
+
+
   def foo = "foo"
 
   ////////////////////////////////////
 
   val naughtyWords = List("Celery", "Megatron")
-  val wordBoundaryRegexPattern = """(?i)(^|\s)%s(\s|$)""" // The %s is for use with the printf style format method
+  val wordBoundaryRegexPattern = """\s"""
 
-  def isNaughty(text: String) = false
+
+  def isNaughty(text: String) : Boolean ={
+    val naughtyWordsLowerCase=naughtyWords.map(nW => nW.toLowerCase())
+    val words= text.toLowerCase().split(wordBoundaryRegexPattern).toList
+    naughtyWordsLowerCase.exists(words.contains)
+  }
+
+
+ 
 }
